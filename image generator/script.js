@@ -1,11 +1,13 @@
 // Declare the array of image filenames
-const images = ['pic1.jpg', 'pic2.jpg', 'pic3.jpg'];
+const images = ['pic1.jpg', 'pic2.jpg', 'pic3.jpg', 'pic4.jpg', 'pic5.jpg'];
 
 // Declare an object for the alternative text for each image
 const altText = {
   'pic1.jpg': 'A closeup of a blue human eye',
   'pic2.jpg': 'A closeup of a red flower',
-  'pic3.jpg': 'A closeup of a green frog'
+  'pic3.jpg': 'A closeup of a green frog',
+  'pic4.jpg': 'A closeup of a mountain landscape',
+  'pic5.jpg': 'A closeup of a beach sunset'
 };
 
 // Get references to the HTML elements
