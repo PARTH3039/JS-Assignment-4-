@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Silly Story Generator</title>
+    <style>
+        body {
+            font-family: helvetica, sans-serif;
+            width: 350px;
+            margin: auto;
+        }
+        label {
+            font-weight: bold;
+        }
+        div {
+            padding-bottom: 20px;
+        }
+        input[type="text"] {
+            padding: 5px;
+            width: 150px;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        p {
+            background: #ffc125;
+            color: #5e2612;
+            padding: 10px;
+            visibility: hidden;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <label for="customname">Enter custom name:</label>
+        <input id="customname" type="text" placeholder="Enter a name">
+    </div>
+    <div>
+        <label for="us">US</label><input id="us" type="radio" name="ukus" value="us" checked>
+        <label for="uk">UK</label><input id="uk" type="radio" name="ukus" value="uk">
+    </div>
+    <div>
+        <button id="randomize">Generate random story</button>
+    </div>
+    <p id="story">It was 94 Fahrenheit outside, so Willy the Goblin went for a walk. When they got to the soup kitchen, they stared in horror for a few moments, then spontaneously combusted. Bob saw the whole thing, but was not surprised — Willy the Goblin weighs 300 pounds, and it was a hot day.</p>
+
+    <script src="main.js"></script>
+</body>
+</html>
