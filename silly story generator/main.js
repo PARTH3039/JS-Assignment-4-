@@ -1,8 +1,8 @@
 /*
-Name: Parth patel 
+Name: Parth Patel 
 File: main.js
-Date: 3rd April 2025s
-Description: Js file for the Silly Story Generator
+Date: 3rd April 2025
+Description: JS file for the Silly Story Generator
 */
 
 // Get references to elements
