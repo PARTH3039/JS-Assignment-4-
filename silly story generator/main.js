@@ -11,43 +11,48 @@ const randomize = document.getElementById('randomize');
 const story = document.getElementById('story');
 
 // Arrays of possible story elements
-const insertX = ['dog', 'cat', 'elephant'];
-const insertY = ['swam', 'ran', 'flew'];
-const insertZ = ['quickly', 'gracefully', 'lazily'];
+const insertX = ['Willy the Goblin', 'Big Daddy', 'Santa Claus'];
+const insertY = ['found a treasure', 'danced with a robot', 'ate 100 hotdogs'];
+const insertZ = ['in Times Square', 'on the Moon', 'inside a volcano'];
 
-// The story text with placeholders
-const storyText = 'Once upon a time, :insertx: :inserty: :insertz: and Bob lived happily ever after.';
+// The story template
+const storyText = 'It was 94 Fahrenheit outside, so :insertx: :inserty: :insertz:. Bob saw the whole thing, but was not surprised — :insertx: weighs 300 pounds, and it was a hot day.';
 
 // Function to pick random item from an array
 function randomValueFromArray(array) {
-  const random = Math.floor(Math.random() * array.length);
-  return array[random];
+  return array[Math.floor(Math.random() * array.length)];
 }
 
-// Function to generate the random story
+// Function to generate the story
 function result() {
   let newStory = storyText;
 
-  // Random values from the arrays
+  // Get random replacements
   const xItem = randomValueFromArray(insertX);
   const yItem = randomValueFromArray(insertY);
   const zItem = randomValueFromArray(insertZ);
 
-  // Replace the placeholders with random items
-  newStory = newStory.replace(':insertx:', xItem);
-  newStory = newStory.replace(':inserty:', yItem);
-  newStory = newStory.replace(':insertz:', zItem);
+  // Replace all placeholders (globally)
+  newStory = newStory.replace(/:insertx:/g, xItem);
+  newStory = newStory.replace(/:inserty:/g, yItem);
+  newStory = newStory.replace(/:insertz:/g, zItem);
 
-  // Replace the default name if a custom name is entered
-  if (customName.value) {
-    const name = customName.value;
+  // Replace name if entered
+  if (customName.value.trim() !== '') {
+    const name = customName.value.trim();
     newStory = newStory.replace('Bob', name);
   }
 
-  // Display the story in the <p> tag
+  // Convert units if UK is selected
+  if (document.getElementById('uk').checked) {
+    const temperatureC = Math.round((94 - 32) * 5 / 9) + ' Celsius';
+    const weightStone = Math.round(300 * 0.0714286) + ' stone';
+    newStory = newStory.replace('94 Fahrenheit', temperatureC);
+    newStory = newStory.replace('300 pounds', weightStone);
+  }
+
+  // Display the story
   story.textContent = newStory;
   story.style.visibility = 'visible';
 }
-
-// Add event listener to the button
 randomize.addEventListener('click', result);
