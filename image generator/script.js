@@ -16,21 +16,21 @@ const thumbBar = document.querySelector('.thumb-bar');
 const btn = document.querySelector('.dark');
 const overlay = document.querySelector('.overlay');
 
-// Loop through the array of image filenames to create the thumbnails
+// Loop through the image array and create clickable thumbnails
 images.forEach((image) => {
   const img = document.createElement('img');
   img.src = `images/${image}`;
   img.alt = altText[image];
   thumbBar.appendChild(img);
 
-  // Add click event listener to each thumbnail image
+  // Set the main image when a thumbnail is clicked
   img.addEventListener('click', () => {
     fullImg.src = img.src;
     fullImg.alt = img.alt;
   });
 });
 
-// Add a click event listener to the button for darkening/lightening the image
+// Toggle overlay on click of the dark/light button
 btn.addEventListener('click', () => {
   if (btn.classList.contains('dark')) {
     btn.classList.remove('dark');
